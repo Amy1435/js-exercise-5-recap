@@ -57,21 +57,63 @@
 // ciascuna randomicamente maiuscola o minuscola.
 // Consiglio: potete creare la stringa 'abcdefghijklmnopqrstuvz' e con un ciclo for controllare ogni carattere della stringa, ovvero ogni lettera dell'alfabeto.
 
-function alfabetoBizzarro() {
-    let alfabeto = "abcdefghijklmnopqrstuvz";
-    let alfabetoStrano = "";
-    for (let i = 0; i < alfabeto.length; i++) {
-        let random = Math.floor(Math.random() * 26);
-        console.log(random);
-        let lettere = alfabeto[i];
-        console.log(lettere);
-        if (random % 2 === 0) {
-            alfabetoStrano += lettere.toUpperCase();
-        } else {
-            alfabetoStrano += lettere.toLowerCase();
-        }
+// function alfabetoBizzarro() {
+//     let alfabeto = "abcdefghijklmnopqrstuvz";
+//     let alfabetoStrano = "";
+//     for (let i = 0; i < alfabeto.length; i++) {
+//         let random = Math.floor(Math.random() * 26);
+//         console.log(random);
+//         let lettere = alfabeto[i];
+//         console.log(lettere);
+//         if (random % 2 === 0) {
+//             alfabetoStrano += lettere.toUpperCase();
+//         } else {
+//             alfabetoStrano += lettere.toLowerCase();
+//         }
+//     }
+//     return alfabetoStrano;
+// }
+
+// console.log(alfabetoBizzarro());
+
+// 5. Crea una funzione che esegue il lancio di una moneta (ritorna testa o croce, casualmente).
+//Quindi, chiedi all'utente quanti lanci vuole effettuare e se punta su testa o croce.
+// Se la maggioranza dei lanci sono uguali a ciò che ha puntato l'utente, mostragli che ha vinto.
+//Altrimenti, mostragli che ha perso.
+
+function lancioMoneta() {
+    let random = Math.floor(Math.random() * 100);
+    if (random % 2 === 0) {
+        return "testa";
+    } else {
+        return "croce";
     }
-    return alfabetoStrano;
 }
 
-console.log(alfabetoBizzarro());
+function scommessa() {
+    let sceltaUtente = prompt("scegli testa o croce?");
+    let qntLanci = Number(prompt("quanti lanci vuoi fare?"));
+    let risultato = [];
+    for (let i = 0; i < qntLanci; i++) {
+        let nuovorisultato = lancioMoneta();
+
+        risultato.push(nuovorisultato);
+    }
+
+    let risposteCorrette = 0;
+    for (let i = 0; i < risultato.length; i++) {
+        if (sceltaUtente === risultato[i]) {
+            risposteCorrette++;
+        }
+    }
+    console.log(risposteCorrette);
+
+    if (risposteCorrette >= risultato.length / 2) {
+        console.log("you won");
+    } else {
+        console.log("you lose");
+    }
+    return risultato;
+}
+
+console.log(scommessa());
