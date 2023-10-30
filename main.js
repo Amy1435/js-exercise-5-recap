@@ -25,18 +25,32 @@
 // console.log(risultato);
 
 // 2. Crea una funzione che concatena una lista di stringhe. Chiedi all'utente quante stringhe vuole concatenare e poi mostragli il risultato.
+function concatena(stringhe) {
+    let contenitore = "";
+    let numeroStringhe = Number(prompt("quante stringhe vuoi concaterare?"));
+    for (i = 0; i < numeroStringhe; i++) {
+        let stringa = prompt("scivi la stringa che vuoi concatenare");
+        contenitore += stringa + " ";
+    }
+    return contenitore;
+}
+
+console.log(concatena());
 
 // 3. Crea una funzione che calcola il doppio di un numero. Quindi chiedi all'utente 10 numeri. Per ogni numero, mostra all'utente il doppio, usando la funzione.
 
-function doppioNumero(numero) {
-    let container = "";
-    for (let i = 0; i < 10; i++) {
-        let numeroUtente = Number(prompt("Chi numero vuoi raddopiare?"));
-        let numeroRaddopiato = numeroUtente * numeroUtente;
-        container += numeroRaddopiato + " ";
-    }
-    return container;
-}
+// function doppioNumero(numero) {
+//     let container = "";
+//     for (let i = 0; i < 10; i++) {
+//         let numeroUtente = Number(prompt("Chi numero vuoi raddopiare?"));
+//         let numeroRaddopiato = numeroUtente * numeroUtente;
+//         container += numeroRaddopiato + " ";
+//     }
+//     return container;
+// }
 
-let risultato = doppioNumero();
-console.log(risultato);
+// let risultato = doppioNumero();
+// console.log(risultato);
+
+// 4. Crea una funzione che transforma una stringa in maiuscolo o minuscolo in base ad un parametro. Quindi, crea un array che contiene tutte le lettere dell'alfabeto, ciascuna randomicamente maiuscola o minuscola.
+// Consiglio: potete creare la stringa 'abcdefghijklmnopqrstuvz' e con un ciclo for controllare ogni carattere della stringa, ovvero ogni lettera dell'alfabeto.
