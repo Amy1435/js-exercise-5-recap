@@ -81,39 +81,62 @@
 // Se la maggioranza dei lanci sono uguali a ciò che ha puntato l'utente, mostragli che ha vinto.
 //Altrimenti, mostragli che ha perso.
 
-function lancioMoneta() {
-    let random = Math.floor(Math.random() * 100);
-    if (random % 2 === 0) {
-        return "testa";
+// function lancioMoneta() {
+//     let random = Math.floor(Math.random() * 100);
+//     if (random % 2 === 0) {
+//         return "testa";
+//     } else {
+//         return "croce";
+//     }
+// }
+
+// function scommessa() {
+//     let sceltaUtente = prompt("scegli testa o croce?");
+//     let qntLanci = Number(prompt("quanti lanci vuoi fare?"));
+//     let risultato = [];
+//     for (let i = 0; i < qntLanci; i++) {
+//         let nuovorisultato = lancioMoneta();
+
+//         risultato.push(nuovorisultato);
+//     }
+
+//     let risposteCorrette = 0;
+//     for (let i = 0; i < risultato.length; i++) {
+//         if (sceltaUtente === risultato[i]) {
+//             risposteCorrette++;
+//         }
+//     }
+//     console.log(risposteCorrette);
+
+//     if (risposteCorrette >= risultato.length / 2) {
+//         console.log("you won");
+//     } else {
+//         console.log("you lose");
+//     }
+//     return risultato;
+// }
+
+// console.log(scommessa());
+
+// 6. Crea una funzione che genera il lancio di un dado a 6 facce (ritorna un numero casuale tra 1 e 6).
+//Quindi simula un lancio per il computer e un lancio per l'utente.
+//Mostra all'utente quanto è stato il risultato del computer e quanto è stato il risultato dell'utente e comunicagli se ha vinto o meno.
+
+function dado(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function gioco() {
+    let lanciUtente = dado(1, 6);
+    console.log(" Questo è il tuo lancio: " + lanciUtente);
+    let lancioComputer = dado(1, 6);
+    console.log(" Questo è il lancio del computer: " + lancioComputer);
+
+    if (lanciUtente > lancioComputer) {
+        alert("Hai vinto!");
     } else {
-        return "croce";
+        alert("Hai perso :( ");
     }
 }
 
-function scommessa() {
-    let sceltaUtente = prompt("scegli testa o croce?");
-    let qntLanci = Number(prompt("quanti lanci vuoi fare?"));
-    let risultato = [];
-    for (let i = 0; i < qntLanci; i++) {
-        let nuovorisultato = lancioMoneta();
-
-        risultato.push(nuovorisultato);
-    }
-
-    let risposteCorrette = 0;
-    for (let i = 0; i < risultato.length; i++) {
-        if (sceltaUtente === risultato[i]) {
-            risposteCorrette++;
-        }
-    }
-    console.log(risposteCorrette);
-
-    if (risposteCorrette >= risultato.length / 2) {
-        console.log("you won");
-    } else {
-        console.log("you lose");
-    }
-    return risultato;
-}
-
-console.log(scommessa());
+console.log(gioco());
