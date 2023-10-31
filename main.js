@@ -122,21 +122,91 @@
 //Quindi simula un lancio per il computer e un lancio per l'utente.
 //Mostra all'utente quanto è stato il risultato del computer e quanto è stato il risultato dell'utente e comunicagli se ha vinto o meno.
 
-function dado(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// function dado(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
-function gioco() {
-    let lanciUtente = dado(1, 6);
-    console.log(" Questo è il tuo lancio: " + lanciUtente);
-    let lancioComputer = dado(1, 6);
-    console.log(" Questo è il lancio del computer: " + lancioComputer);
+// function gioco() {
+//     let lanciUtente = dado(1, 6);
+//     console.log(" Questo è il tuo lancio: " + lanciUtente);
+//     let lancioComputer = dado(1, 6);
+//     console.log(" Questo è il lancio del computer: " + lancioComputer);
 
-    if (lanciUtente > lancioComputer) {
-        alert("Hai vinto!");
+//     if (lanciUtente > lancioComputer) {
+//         alert("Hai vinto!");
+//     } else {
+//         alert("Hai perso :( ");
+//     }
+// }
+
+// console.log(gioco());    //UNDEFINED
+
+// 7. Crea una funzione che simula un lancio della roulette (deve ritornare un numero casuale tra 0 e 36).
+// Quindi chiedi all'utente se vuole puntare su un numero o su pari/dispari.
+// Quindi esegui un lancio della roulette e fagli sapere se ha vinto.
+
+// function lancioRoulette() {
+//     return Math.floor(Math.random() * 36);
+// }
+
+// console.log(lancioRoulette());
+
+// let domPuntare = prompt("vuoi puntare su un numero o su pari/dispari?");
+// function giocoRoulette(punta) {
+//     let sceltaUtente = "";
+//     if (domPuntare === "numero") {
+//         sceltaUtente += prompt("su che numero vuoi puntare ?");
+//     } else if (domPuntare === "pari/dispari") {
+//         sceltaUtente += prompt("scegli se pari o dispari?");
+//     }
+
+//     return "la tua scelta è " + sceltaUtente;
+// }
+// console.log(giocoRoulette(domPuntare));
+
+// if (
+//     sceltaUtente === risultato ||
+//     (sceltaUtente === "pari" && risultato % 2 === 0) ||
+//     (sceltaUtente === "dispari" && risultato % 2 === 1)
+// ) {
+//     console.log("congratulation you won");
+// } else {
+//     console.log("you lost =(");
+// }
+
+// function lancioRoulette() {
+//     let risultato = "";
+//     return (risultato += Math.floor(Math.random() * 36));
+// }
+// console.log(lancioRoulette());
+
+// 8. Il casinò:
+// Chiedi all'utente a quale gioco vuole giocare tra lancio della moneta, lancio dei dadi e roulette.
+//Quindi esegui una delle funzioni che avevi già preparato per i precedenti esercizi.
+
+// 9. Crea una lista di animali (stringhe) che fanno parte dello Zoo.
+//Crea una funzione che a partire da una stringa, ci fa sapere se nello zoo c'è quell'animale.
+//Chiedi all'utente quale animale vuole vedere. Comunicagli, usando la funzione, se l'animale c'è o meno.
+// BONUS: la funzione deve funzionare anche se l'utente scrive il nome tutto maiuscolo/tutto maiuscolo/un mix. Ci interessa solo che il nome dell'animale sia lo stesso.
+
+const animalZoo = [
+    "ippopotamo",
+    "giraffa",
+    "cammello",
+    "scimmia",
+    "bradipo",
+    "koala",
+    "leone",
+];
+
+function animalResearch() {
+    let animalWanter = prompt("che animale vuoi vedere allo zoo?");
+
+    if (animalZoo.includes(animalWanter) === true) {
+        return `C'é il ${animalWanter} nel nostro zoo, vieni a trovarci!`;
     } else {
-        alert("Hai perso :( ");
+        return `Pultroppo non lo abbiamo il ${animalWanter} nel nostro zoo`;
     }
 }
 
-console.log(gioco());
+console.log(animalResearch());
