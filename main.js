@@ -189,24 +189,50 @@
 //Chiedi all'utente quale animale vuole vedere. Comunicagli, usando la funzione, se l'animale c'è o meno.
 // BONUS: la funzione deve funzionare anche se l'utente scrive il nome tutto maiuscolo/tutto maiuscolo/un mix. Ci interessa solo che il nome dell'animale sia lo stesso.
 
-const animalZoo = [
-    "ippopotamo",
-    "giraffa",
-    "cammello",
-    "scimmia",
-    "bradipo",
-    "koala",
-    "leone",
-];
+// const animalZoo = [
+//     "ippopotamo",
+//     "giraffa",
+//     "cammello",
+//     "scimmia",
+//     "bradipo",
+//     "koala",
+//     "leone",
+// ];
 
-function animalResearch() {
-    let animalWanter = prompt("che animale vuoi vedere allo zoo?");
+// function animalResearch() {
+//     let animalWanter = prompt("che animale vuoi vedere allo zoo?");
 
-    if (animalZoo.includes(animalWanter) === true) {
-        return `C'é il ${animalWanter} nel nostro zoo, vieni a trovarci!`;
-    } else {
-        return `Pultroppo non lo abbiamo il ${animalWanter} nel nostro zoo`;
+//     if (animalZoo.includes(animalWanter) === true) {
+//         return `C'é il ${animalWanter} nel nostro zoo, vieni a trovarci!`;
+//     } else {
+//         return `Pultroppo non lo abbiamo il ${animalWanter} nel nostro zoo`;
+//     }
+// }
+
+// console.log(animalResearch());
+
+// 10. Crea una funzione che ordina una lista di numeri dal più piccolo al più grande.
+//Chiedi all'utente quanti numeri vuole inserire. Quindi, chiedi all'utente i numeri.
+//Mostra all'utente la lista di numeri ordinata dal più piccolo al più grande.
+
+function ordineNumeri() {
+    let domQuantiNumeri = Number(prompt("quanti numeri vuoi inserire?"));
+    let numeriUtente = [];
+    for (i = 0; i < domQuantiNumeri; i++) {
+        let numeri = Number(prompt("Scivi il numero che vuoi inserire:"));
+        numeriUtente.push(numeri);
     }
+    console.log("Questi sono i tuoi numeri " + numeriUtente);
+
+    function comparazioneNumeri(a, b) {
+        return a - b;
+    }
+
+    function piccoloGrande() {
+        let numeriCrescenti = numeriUtente.sort(comparazioneNumeri);
+        return "Ecco la lista crescente dei tuoi numeri " + numeriCrescenti;
+    }
+    console.log(piccoloGrande());
 }
 
-console.log(animalResearch());
+ordineNumeri();
