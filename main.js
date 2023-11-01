@@ -145,40 +145,42 @@
 // Quindi chiedi all'utente se vuole puntare su un numero o su pari/dispari.
 // Quindi esegui un lancio della roulette e fagli sapere se ha vinto.
 
-// function lancioRoulette() {
-//     return Math.floor(Math.random() * 36);
-// }
+function lancioRoulette() {
+    return Math.floor(Math.random() * 36);
+}
 
-// console.log(lancioRoulette());
+function giocoRoulette() {
+    let domPuntare = prompt("Vuoi puntare su un numero o su pari/dispari?");
+    let sceltaUtente = "";
+    if (domPuntare === "numero") {
+        sceltaUtente += Number(prompt("su che numero vuoi puntare ?"));
+    } else if (domPuntare === "pari/dispari") {
+        sceltaUtente += prompt("scegli se pari o dispari?");
+    }
 
-// let domPuntare = prompt("vuoi puntare su un numero o su pari/dispari?");
-// function giocoRoulette(punta) {
-//     let sceltaUtente = "";
-//     if (domPuntare === "numero") {
-//         sceltaUtente += prompt("su che numero vuoi puntare ?");
-//     } else if (domPuntare === "pari/dispari") {
-//         sceltaUtente += prompt("scegli se pari o dispari?");
-//     }
+    console.log("la tua scelta è " + sceltaUtente);
 
-//     return "la tua scelta è " + sceltaUtente;
-// }
-// console.log(giocoRoulette(domPuntare));
+    let risultato = lancioRoulette();
 
-// if (
-//     sceltaUtente === risultato ||
-//     (sceltaUtente === "pari" && risultato % 2 === 0) ||
-//     (sceltaUtente === "dispari" && risultato % 2 === 1)
-// ) {
-//     console.log("congratulation you won");
-// } else {
-//     console.log("you lost =(");
-// }
+    console.log("questo è il numero della roulette " + risultato);
 
-// function lancioRoulette() {
-//     let risultato = "";
-//     return (risultato += Math.floor(Math.random() * 36));
-// }
-// console.log(lancioRoulette());
+    console.log("sceltaUtente " + sceltaUtente);
+    console.log("risultato " + risultato);
+    console.log(sceltaUtente === risultato);
+    console.log(sceltaUtente === "pari" && risultato % 2 === 0);
+    console.log(sceltaUtente === "dispari" && risultato % 2 !== 0);
+
+    if (
+        (sceltaUtente === Number && sceltaUtente === risultato) ||
+        (sceltaUtente === "pari" && risultato % 2 === 0) ||
+        (sceltaUtente === "dispari" && risultato % 2 !== 0)
+    ) {
+        console.log("congratulation you won");
+    } else {
+        console.log("you lost =(");
+    }
+}
+giocoRoulette();
 
 // 8. Il casinò:
 // Chiedi all'utente a quale gioco vuole giocare tra lancio della moneta, lancio dei dadi e roulette.
@@ -243,47 +245,47 @@
 //Infine, chiedi all'utente se li vuole visualizzare in ordine crescente o decrescente.
 //Mostra all'utente la lista di numeri ordinata nel modo in cui ha chiesto.
 
-function ordineNumeri() {
-    let domQuantiNumeri = Number(prompt("quanti numeri vuoi inserire?"));
-    let numeriUtente = [];
-    for (i = 0; i < domQuantiNumeri; i++) {
-        let numeri = Number(prompt("Scivi il numero che vuoi inserire:"));
-        numeriUtente.push(numeri);
-    }
-    console.log("Questi sono i tuoi numeri " + numeriUtente);
+// function ordineNumeri() {
+//     let domQuantiNumeri = Number(prompt("quanti numeri vuoi inserire?"));
+//     let numeriUtente = [];
+//     for (i = 0; i < domQuantiNumeri; i++) {
+//         let numeri = Number(prompt("Scivi il numero che vuoi inserire:"));
+//         numeriUtente.push(numeri);
+//     }
+//     console.log("Questi sono i tuoi numeri " + numeriUtente);
 
-    sceltaOrdine(numeriUtente);
-}
+//     sceltaOrdine(numeriUtente);
+// }
 
-function comparazioneNumeriCrescenti(a, b) {
-    return a - b;
-}
+// function comparazioneNumeriCrescenti(a, b) {
+//     return a - b;
+// }
 
-function crescente(numeriUtente) {
-    numeriUtente.sort(comparazioneNumeriCrescenti);
-    console.log("Ecco la lista crescente dei tuoi numeri " + numeriUtente);
-    return "Ecco la lista crescente dei tuoi numeri " + numeriUtente;
-}
+// function crescente(numeriUtente) {
+//     numeriUtente.sort(comparazioneNumeriCrescenti);
+//     console.log("Ecco la lista crescente dei tuoi numeri " + numeriUtente);
+//     return "Ecco la lista crescente dei tuoi numeri " + numeriUtente;
+// }
 
-function comparazioneNumeriDecrescenti(a, b) {
-    return b - a;
-}
+// function comparazioneNumeriDecrescenti(a, b) {
+//     return b - a;
+// }
 
-function decrescente(numeriUtente) {
-    numeriUtente.sort(comparazioneNumeriDecrescenti);
-    console.log("Ecco la lista decrescente dei tuoi numeri " + numeriUtente);
-    return "Ecco la lista decrescente dei tuoi numeri " + numeriUtente;
-}
+// function decrescente(numeriUtente) {
+//     numeriUtente.sort(comparazioneNumeriDecrescenti);
+//     console.log("Ecco la lista decrescente dei tuoi numeri " + numeriUtente);
+//     return "Ecco la lista decrescente dei tuoi numeri " + numeriUtente;
+// }
 
-function sceltaOrdine(numeriUtente) {
-    let scelta = prompt(
-        "vuoi ordinare i tuo numeri in modo crescente o decrescente?"
-    );
-    if (scelta === "crescente") {
-        return crescente(numeriUtente);
-    } else if (scelta === "decrescente") {
-        return decrescente(numeriUtente);
-    }
-}
+// function sceltaOrdine(numeriUtente) {
+//     let scelta = prompt(
+//         "vuoi ordinare i tuo numeri in modo crescente o decrescente?"
+//     );
+//     if (scelta === "crescente") {
+//         return crescente(numeriUtente);
+//     } else if (scelta === "decrescente") {
+//         return decrescente(numeriUtente);
+//     }
+// }
 
-ordineNumeri();
+// ordineNumeri();
