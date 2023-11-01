@@ -81,40 +81,42 @@
 // Se la maggioranza dei lanci sono uguali a ciò che ha puntato l'utente, mostragli che ha vinto.
 //Altrimenti, mostragli che ha perso.
 
-// function lancioMoneta() {
-//     let random = Math.floor(Math.random() * 100);
-//     if (random % 2 === 0) {
-//         return "testa";
-//     } else {
-//         return "croce";
-//     }
-// }
+function lancioMoneta() {
+    let random = Math.floor(Math.random() * 100);
+    if (random % 2 === 0) {
+        return "testa";
+    } else {
+        return "croce";
+    }
+}
 
-// function scommessa() {
-//     let sceltaUtente = prompt("scegli testa o croce?");
-//     let qntLanci = Number(prompt("quanti lanci vuoi fare?"));
-//     let risultato = [];
-//     for (let i = 0; i < qntLanci; i++) {
-//         let nuovorisultato = lancioMoneta();
+function scommessa() {
+    let sceltaUtente = prompt("scegli testa o croce?");
+    let qntLanci = Number(prompt("quanti lanci vuoi fare?"));
+    let risultato = [];
+    for (let i = 0; i < qntLanci; i++) {
+        let nuovorisultato = lancioMoneta();
 
-//         risultato.push(nuovorisultato);
-//     }
+        risultato.push(nuovorisultato);
+    }
 
-//     let risposteCorrette = 0;
-//     for (let i = 0; i < risultato.length; i++) {
-//         if (sceltaUtente === risultato[i]) {
-//             risposteCorrette++;
-//         }
-//     }
-//     console.log(risposteCorrette);
+    let risposteCorrette = 0;
+    for (let i = 0; i < risultato.length; i++) {
+        if (sceltaUtente === risultato[i]) {
+            risposteCorrette++;
+        }
+    }
+    console.log(
+        "Questo è il numero delle tue risposte corrette : " + risposteCorrette
+    );
 
-//     if (risposteCorrette >= risultato.length / 2) {
-//         console.log("you won");
-//     } else {
-//         console.log("you lose");
-//     }
-//     return risultato;
-// }
+    if (risposteCorrette > risultato.length / 2) {
+        console.log(`Hai vinto`);
+    } else {
+        console.log("you lose");
+    }
+    return risultato;
+}
 
 // console.log(scommessa());
 
@@ -122,24 +124,24 @@
 //Quindi simula un lancio per il computer e un lancio per l'utente.
 //Mostra all'utente quanto è stato il risultato del computer e quanto è stato il risultato dell'utente e comunicagli se ha vinto o meno.
 
-// function dado(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+function dado(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-// function gioco() {
-//     let lanciUtente = dado(1, 6);
-//     console.log(" Questo è il tuo lancio: " + lanciUtente);
-//     let lancioComputer = dado(1, 6);
-//     console.log(" Questo è il lancio del computer: " + lancioComputer);
+function giocoDadi() {
+    let lanciUtente = dado(1, 6);
+    console.log(" Questo è il tuo lancio: " + lanciUtente);
+    let lancioComputer = dado(1, 6);
+    console.log(" Questo è il lancio del computer: " + lancioComputer);
 
-//     if (lanciUtente > lancioComputer) {
-//         alert("Hai vinto!");
-//     } else {
-//         alert("Hai perso :( ");
-//     }
-// }
+    if (lanciUtente > lancioComputer) {
+        alert("Hai vinto! il tuo numero è superiore a quello del computer");
+    } else {
+        alert("Hai perso :(  il tuo numero è inferiore a quello del computer");
+    }
+}
 
-// console.log(gioco());    //UNDEFINED
+//UNDEFINED
 
 // 7. Crea una funzione che simula un lancio della roulette (deve ritornare un numero casuale tra 0 e 36).
 // Quindi chiedi all'utente se vuole puntare su un numero o su pari/dispari.
@@ -164,11 +166,11 @@ function giocoRoulette() {
 
     console.log("questo è il numero della roulette " + risultato);
 
-    console.log("sceltaUtente " + sceltaUtente);
-    console.log("risultato " + risultato);
-    console.log(sceltaUtente === risultato);
-    console.log(sceltaUtente === "pari" && risultato % 2 === 0);
-    console.log(sceltaUtente === "dispari" && risultato % 2 !== 0);
+    // console.log("sceltaUtente " + sceltaUtente);
+    // console.log("risultato " + risultato);
+    // console.log(sceltaUtente === risultato);
+    // console.log(sceltaUtente === "pari" && risultato % 2 === 0);
+    // console.log(sceltaUtente === "dispari" && risultato % 2 !== 0);
 
     if (
         (sceltaUtente === Number && sceltaUtente === risultato) ||
@@ -180,11 +182,25 @@ function giocoRoulette() {
         console.log("you lost =(");
     }
 }
-giocoRoulette();
 
 // 8. Il casinò:
 // Chiedi all'utente a quale gioco vuole giocare tra lancio della moneta, lancio dei dadi e roulette.
 //Quindi esegui una delle funzioni che avevi già preparato per i precedenti esercizi.
+
+function giochi() {
+    let sceltaGioco = prompt(
+        "A quale gioco vuoi giocare tra lancio della moneta, lancio dei dadi e roulette?"
+    );
+    if (sceltaGioco === "lancio della moneta") {
+        return scommessa();
+    } else if (sceltaGioco === "lancio dei dadi") {
+        return giocoDadi();
+    } else if (sceltaGioco === "roulette") {
+        return giocoRoulette();
+    }
+}
+
+giochi();
 
 // 9. Crea una lista di animali (stringhe) che fanno parte dello Zoo.
 //Crea una funzione che a partire da una stringa, ci fa sapere se nello zoo c'è quell'animale.
