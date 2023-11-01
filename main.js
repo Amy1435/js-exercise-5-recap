@@ -215,6 +215,34 @@
 //Chiedi all'utente quanti numeri vuole inserire. Quindi, chiedi all'utente i numeri.
 //Mostra all'utente la lista di numeri ordinata dal più piccolo al più grande.
 
+// function ordineNumeri() {
+//     let domQuantiNumeri = Number(prompt("quanti numeri vuoi inserire?"));
+//     let numeriUtente = [];
+//     for (i = 0; i < domQuantiNumeri; i++) {
+//         let numeri = Number(prompt("Scivi il numero che vuoi inserire:"));
+//         numeriUtente.push(numeri);
+//     }
+//     console.log("Questi sono i tuoi numeri " + numeriUtente);
+
+//     function comparazioneNumeri(a, b) {
+//         return a - b;
+//     }
+
+//     function piccoloGrande() {
+//         let numeriCrescenti = numeriUtente.sort(comparazioneNumeri);
+//         return "Ecco la lista crescente dei tuoi numeri " + numeriCrescenti;
+//     }
+//     console.log(piccoloGrande());
+// }
+
+// ordineNumeri();
+
+// 11. Crea una funzione che ordina una lista di numeri. In base a uno dei parametri,
+// viene ordinata dal più piccolo al più grande o viceversa.
+//Chiedi all'utente quanti numeri vuole inserire. Quindi, chiedi all'utente i numeri.
+//Infine, chiedi all'utente se li vuole visualizzare in ordine crescente o decrescente.
+//Mostra all'utente la lista di numeri ordinata nel modo in cui ha chiesto.
+
 function ordineNumeri() {
     let domQuantiNumeri = Number(prompt("quanti numeri vuoi inserire?"));
     let numeriUtente = [];
@@ -224,15 +252,38 @@ function ordineNumeri() {
     }
     console.log("Questi sono i tuoi numeri " + numeriUtente);
 
-    function comparazioneNumeri(a, b) {
-        return a - b;
-    }
+    sceltaOrdine(numeriUtente);
+}
 
-    function piccoloGrande() {
-        let numeriCrescenti = numeriUtente.sort(comparazioneNumeri);
-        return "Ecco la lista crescente dei tuoi numeri " + numeriCrescenti;
+function comparazioneNumeriCrescenti(a, b) {
+    return a - b;
+}
+
+function crescente(numeriUtente) {
+    numeriUtente.sort(comparazioneNumeriCrescenti);
+    console.log("Ecco la lista crescente dei tuoi numeri " + numeriUtente);
+    return "Ecco la lista crescente dei tuoi numeri " + numeriUtente;
+}
+
+function comparazioneNumeriDecrescenti(a, b) {
+    return b - a;
+}
+
+function decrescente(numeriUtente) {
+    numeriUtente.sort(comparazioneNumeriDecrescenti);
+    console.log("Ecco la lista decrescente dei tuoi numeri " + numeriUtente);
+    return "Ecco la lista decrescente dei tuoi numeri " + numeriUtente;
+}
+
+function sceltaOrdine(numeriUtente) {
+    let scelta = prompt(
+        "vuoi ordinare i tuo numeri in modo crescente o decrescente?"
+    );
+    if (scelta === "crescente") {
+        return crescente(numeriUtente);
+    } else if (scelta === "decrescente") {
+        return decrescente(numeriUtente);
     }
-    console.log(piccoloGrande());
 }
 
 ordineNumeri();
